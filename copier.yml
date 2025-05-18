@@ -1,6 +1,11 @@
-project_name:
-    type: str
-    help: What is your project name?
+_subdirectory: template
+
+_skip_if_exists:
+  - LICENSE
+  - CHANGELOG.md
+  - CODE_OF_CONDUCT.md
+  - .gitignore
+  - .editorconfig
   
 python_version:
     type: str
