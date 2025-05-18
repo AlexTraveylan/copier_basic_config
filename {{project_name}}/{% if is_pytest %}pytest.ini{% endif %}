@@ -1,0 +1,2 @@
+pythonpath = ["."]
+addopts = ["-v", "-s"]

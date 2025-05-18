@@ -1,0 +1,28 @@
+project_name:
+    type: str
+    help: What is your project name?
+  
+python_version:
+    type: str
+    help: What is your python version?
+    default: 3.13
+
+is_ruff:
+    type: bool
+    help: Do you want a config for ruff?
+    default: true
+
+is_mypy:
+    type: bool
+    help: Do you want a config for mypy?
+    default: true
+
+is_pytest:
+    type: bool
+    help: Do you want a config for pytest?
+    default: true
+
+is_vscode:
+    type: bool
+    help: Do you want a config for vscode?
+    default: true
