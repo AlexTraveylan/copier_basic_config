@@ -1,5 +1,5 @@
-exclude = "tests"
-python_version = "{{ python_version }}"
+[mypy]
+python_version = 3.12
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true
@@ -14,3 +14,4 @@ warn_unreachable = true
 strict_optional = true
 namespace_packages = true
 explicit_package_bases = true
+exclude = tests
