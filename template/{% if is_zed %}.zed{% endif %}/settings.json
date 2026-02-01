@@ -1,0 +1,45 @@
+{
+  "base_keymap": "Cursor",
+  "languages": {
+    "Python": {
+      "format_on_save": "on",
+      "language_servers": ["ty", "ruff", "basedpyright", "!pyright", "!pylsp"],
+      "formatter": [
+        {
+          "language_server": { "name": "ruff" },
+        },
+      ],
+    },
+  },
+  "terminal": {
+    "env": {
+      "PYTHONPATH": ".",
+    },
+  },
+  "autosave": "on_focus_change",
+  "confirm_quit": true,
+  "file_scan_exclusions": [
+    "**/__pycache__",
+    "**/*_cache",
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/.jj",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+  ],
+  "edit_predictions": {
+    "disabled_globs": [
+      "**/.env*",
+      "**/*.pem",
+      "**/*.key",
+      "**/*.cert",
+      "**/*.crt",
+      "**/.dev.vars",
+      "**/secrets.yml",
+    ],
+  },
+}
