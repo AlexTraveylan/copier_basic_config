@@ -2,9 +2,8 @@
 
 ## Features
 
-- config .vscode
+- config .vscode or .zed
 - config ruff
-- config mypy
 - config pytest
 
 ## Usage
