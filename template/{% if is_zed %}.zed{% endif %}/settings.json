@@ -1,9 +1,12 @@
 {
-  "base_keymap": "Cursor",
   "languages": {
     "Python": {
       "format_on_save": "on",
       "language_servers": ["ty", "ruff", "basedpyright", "!pyright", "!pylsp"],
+      "code_actions_on_format": {
+        "source.organizeImports.ruff": true,
+        "source.fixAll.ruff": true,
+      },
       "formatter": [
         {
           "language_server": { "name": "ruff" },
@@ -16,8 +19,6 @@
       "PYTHONPATH": ".",
     },
   },
-  "autosave": "on_focus_change",
-  "confirm_quit": true,
   "file_scan_exclusions": [
     "**/__pycache__",
     "**/*_cache",
