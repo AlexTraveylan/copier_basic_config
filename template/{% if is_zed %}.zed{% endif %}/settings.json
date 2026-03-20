@@ -1,5 +1,5 @@
 {
-  "wrap_guides": [118, 120],
+    "wrap_guides": [118, 120],
     "languages": {
         "Python": {
             "format_on_save": "on",
