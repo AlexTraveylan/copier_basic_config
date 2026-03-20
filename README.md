@@ -15,7 +15,7 @@ uv tool install copier
 Then
 
 ```bash
-copier copy https://github.com/AlexTraveylan/copier_basic_config.git path/to/destination
+uv run copier copy https://github.com/AlexTraveylan/copier_basic_config.git .
 ```
 
 ## More information about copier
