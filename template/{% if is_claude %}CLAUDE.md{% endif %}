@@ -1,0 +1,70 @@
+# CLAUDE.md
+
+@doc/index.md
+
+## Commands
+
+```bash
+# Run the job
+uv run main.py
+
+# Run all tests
+uv run pytest
+
+# Lint
+uv run ruff check .
+
+# Format
+uv run ruff format .
+
+# Typing
+uv run ty check .
+```
+
+## Naming conventions
+
+- **Variables**: use business-meaningful names, not type suffixes.
+- **DataFrames**: never suffix with `_df`. Name by what the data represents (`scores`, `failures`, `products`, `queries`).
+
+## Test conventions
+
+- **Functions, not classes**: use top-level `def test_*()` functions, grouped by comments `# test <function_name>`
+- **Given / When / Then**: explicit `# Given`, `# When`, `# Then` comments in each test body
+
+### Typing
+
+Annotate function signatures (parameters + return). Inside test bodies, only annotate when the type is **not obvious** from context (e.g. `model_construct`, union types). Do **not** annotate when the right-hand side makes it clear: `predictor = MockPredictor()`, `scores = [_make_score(...)]`, `results = asyncio.run(...)`.
+
+### Parametrize
+
+Use `@pytest.mark.parametrize` for multiple cases of the same scenario.
+
+### Time
+
+Use `freezegun` (`@freezegun.freeze_time(...)`) for any time-dependent logic.
+
+### Mocking
+
+- Minimal mocking: avoid mocks when possible. When needed, use `@patch` as decorator (not context manager).
+- **Ports**: use infrastructure mock implementations (`MockPredictor`, `MockLlmEvaluator`) for happy paths. Use `MagicMock`/`AsyncMock` only for failure scenarios.
+
+### Fixtures
+
+Shared fixtures in `tests/unit_tests/conftest.py`: `fake_query`, `fake_title`, `fake_suggestion`, `fake_score`, `mock_prompt_repository`.
+Test data files: `tests/data/input/`.
+
+### Assertions
+
+One precise assertion: build a complete `expected` object, compare with `assert expected == result`.
+DataFrames: `pd.testing.assert_frame_equal(expected, result)` — no `reset_index`, `check_like`, ou `check_names=False` sauf si justifié.
+
+## After coding
+
+When you finish a coding task (not just answering questions), run the quality gate:
+
+```bash
+uv run ruff check .
+uv run ty check .
+```
+
+If you modified files under `src/`, check whether behavior or architecture changed — if so, update the relevant `doc/` file(s). Consult `doc/index.md` to identify which ones.

@@ -31,3 +31,8 @@ is_zed:
     type: bool
     help: Do you want a config for zed?
     default: true
+
+is_claude:
+    type: bool
+    help: Do you want a config for claude?
+    default: true
